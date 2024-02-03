@@ -6,18 +6,44 @@ async function getLocation() {
 	var dataLocation = await response.json();
 	console.log(dataLocation);
 }
-getLocation()
+// getLocation()
 
 async function getIp() {
 	const response = await fetch("http://ip-api.com/json/?fields=61439");
 	var dataIp = await response.json();
 }
 
-if (navigator.geolocation) {
-	navigator.geolocation.watchPosition((position) => {
-		document.querySelector(".map").innerHTML = `
-		<iframe height="300" src="https://www.openstreetmap.org/export/embed.html?bbox=${position.coords.longitude},${position.coords.latitude}&;layer=mapnik"></iframe>
+function ipInput() { }
+
+function locationInfo() {
+	document.querySelector(".location-info-container").innerHTML = `
+		<div>
+			<div class="info-title">IP Address</div>
+			<div class="info"></div>
+		</div>
+		<div>
+			<div class="info-title">Location</div>
+			<div class="info"></div>
+		</div>
+		<div>
+			<div class="info-title">Timezone</div>
+			<div class="info"></div>
+		</div>
+		<div>
+			<div class="info-title">UTC</div>
+			<div class="info"></div>
+		</div>
 	`
-	}
-	);
 }
+
+locationInfo()
+
+// if (navigator.geolocation) {
+// 	navigator.geolocation.watchPosition((position) => {
+// 		document.querySelector(".map").innerHTML = `
+// 		<iframe height="300" src="https://www.openstreetmap.org/export/embed.html?bbox=${position.coords.longitude},${position.coords.latitude}&;layer=mapnik"></iframe>
+// 	`
+// 	}
+// 	);
+// }
+
