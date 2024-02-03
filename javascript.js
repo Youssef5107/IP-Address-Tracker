@@ -17,21 +17,24 @@ function ipInput() { }
 
 function locationInfo() {
 	document.querySelector(".location-info-container").innerHTML = `
-		<div>
+		<div class="info-area">
 			<div class="info-title">IP Address</div>
-			<div class="info"></div>
+			<div class="info">this is not the real info</div>
 		</div>
-		<div>
+		<hr>
+		<div class="info-area">
 			<div class="info-title">Location</div>
-			<div class="info"></div>
+			<div class="info">this is not the real info</div>
 		</div>
-		<div>
+		<hr>
+		<div class="info-area">
 			<div class="info-title">Timezone</div>
-			<div class="info"></div>
+			<div class="info">this is not the real info</div>
 		</div>
-		<div>
+		<hr>
+		<div class="info-area">
 			<div class="info-title">ISP</div>
-			<div class="info">UTC -</div>
+			<div class="info">UTC -this is not the real info</div>
 		</div>
 	`
 }
@@ -41,7 +44,7 @@ locationInfo()
 // if (navigator.geolocation) {
 // 	navigator.geolocation.watchPosition((position) => {
 // 		document.querySelector(".map").innerHTML = `
-// 		<iframe height="300" src="https://www.openstreetmap.org/export/embed.html?bbox=${position.coords.longitude},${position.coords.latitude}&;layer=mapnik"></iframe>
+// 		<iframe src="https://www.openstreetmap.org/export/embed.html?bbox=${position.coords.longitude},${position.coords.latitude}&;layer=mapnik"></iframe>
 // 	`
 // 	}
 // 	);
