@@ -17,36 +17,46 @@ function ipInput() { }
 
 function locationInfo() {
 	document.querySelector(".location-info-container").innerHTML = `
-		<div class="info-area">
-			<div class="info-title">IP Address</div>
-			<div class="info">this is not the real info</div>
+		<div class="info-container">
+			<div class="info-area">
+				<div class="info-title">IP Address</div>
+				<div class="info">this is not the real info</div>
+			</div>
 		</div>
 		<hr>
-		<div class="info-area">
-			<div class="info-title">Location</div>
-			<div class="info">this is not the real info</div>
+		<div class="info-container">
+			<div class="info-area">
+				<div class="info-title">Location</div>
+				<div class="info">this is not the real info</div>
+			</div>
 		</div>
 		<hr>
-		<div class="info-area">
-			<div class="info-title">Timezone</div>
-			<div class="info">this is not the real info</div>
+		<div class="info-container">
+			<div class="info-area">
+				<div class="info-title">Timezone</div>
+				<div class="info">this is not the real info</div>
+			</div>
 		</div>
 		<hr>
-		<div class="info-area">
-			<div class="info-title">ISP</div>
-			<div class="info">UTC -this is not the real info</div>
+		<div class="info-container">
+			<div class="info-area">
+				<div class="info-title">ISP</div>
+				<div class="info">UTC -this is not the real info</div>
+			</div>
 		</div>
 	`
 }
 
 locationInfo()
 
-// if (navigator.geolocation) {
-// 	navigator.geolocation.watchPosition((position) => {
-// 		document.querySelector(".map").innerHTML = `
-// 		<iframe src="https://www.openstreetmap.org/export/embed.html?bbox=${position.coords.longitude},${position.coords.latitude}&;layer=mapnik"></iframe>
-// 	`
-// 	}
-// 	);
-// }
+if (navigator.geolocation) {
+	navigator.geolocation.watchPosition((position) => {
+		document.querySelector(".map").innerHTML = `
+		<div class="map-container">
+			<iframe src="https://www.openstreetmap.org/export/embed.html?bbox=${position.coords.longitude},${position.coords.latitude}&;layer=mapnik"></iframe>
+		</div>
+	`
+	}
+	);
+}
 
