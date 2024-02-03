@@ -30,8 +30,8 @@ function locationInfo() {
 			<div class="info"></div>
 		</div>
 		<div>
-			<div class="info-title">UTC</div>
-			<div class="info"></div>
+			<div class="info-title">ISP</div>
+			<div class="info">UTC -</div>
 		</div>
 	`
 }
