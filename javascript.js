@@ -109,3 +109,16 @@ function findLocation(longitude, latitude, ip, location, timeZone, isp) {
 	L.marker([latitude, longitude]).addTo(map);
 	fillLocationInfo(ip, location, timeZone, isp);
 }
+
+function toTop() {
+	var scrollToTopButton = document.querySelector(".scroll-to-top-button"); // Replace with your button's selector
+
+	// Add an event listener to the button
+	scrollToTopButton.addEventListener("click", () => {
+		// Scroll to top smoothly using window.scrollTo()
+		window.scrollTo({
+			top: 0,  // Scroll to the top of the page
+			behavior: "smooth"  // Smooth scrolling animation
+		});
+	});
+}
