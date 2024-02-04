@@ -96,6 +96,26 @@ section {
 	height: 700px;
 }
 
+.scroll-to-top-button {
+	width: 30px;
+	height: 30px;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	z-index: 1199;
+	border-radius: 50%;
+	border: none;
+	background-color: black;
+	cursor: pointer;
+}
+
+.arrow {
+	margin: 0px 8.7px 0px 0px;
+	transform: rotate(-90deg);
+}
+
+
+
 @media(max-width:985px) {
 	section {
 		flex-wrap: wrap;
