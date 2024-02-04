@@ -129,6 +129,14 @@ section {
 		height: 250px;
 	}
 
+	.info {
+		margin-top: 7px;
+		font-size: 18px;
+		max-width: 114px;
+		width: 100%;
+
+	}
+
 	.vL2 {
 		display: none;
 	}
