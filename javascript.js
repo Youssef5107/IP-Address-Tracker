@@ -105,20 +105,17 @@ if (navigator.geolocation) {
 // redraw the map after given new location
 
 function findLocation(longitude, latitude, ip, location, timeZone, isp) {
-	map.setView([latitude, longitude], 13); // Update existing map
+	map.setView([latitude, longitude], 13);
 	L.marker([latitude, longitude]).addTo(map);
 	fillLocationInfo(ip, location, timeZone, isp);
 }
 
 function toTop() {
-	var scrollToTopButton = document.querySelector(".scroll-to-top-button"); // Replace with your button's selector
-
-	// Add an event listener to the button
+	var scrollToTopButton = document.querySelector(".scroll-to-top-button");
 	scrollToTopButton.addEventListener("click", () => {
-		// Scroll to top smoothly using window.scrollTo()
 		window.scrollTo({
-			top: 0,  // Scroll to the top of the page
-			behavior: "smooth"  // Smooth scrolling animation
+			top: 0,
+			behavior: "smooth"
 		});
 	});
 }
