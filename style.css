@@ -48,7 +48,7 @@ section {
 .location-info-container {
 	display: flex;
 	justify-content: center;
-	max-width: 1100px;
+	max-width: 1000px;
 	width: 100%;
 	height: 125px;
 	padding: 20px;
@@ -75,11 +75,13 @@ section {
 	font-size: 18px;
 }
 
+
 .vertical-line {
 	width: 115px;
 	height: 141px;
 	position: relative;
 	bottom: 15px;
+	background: transparent;
 }
 
 .map-container {
@@ -94,6 +96,27 @@ section {
 	height: 700px;
 }
 
-iframe {}
+@media(max-width:985px) {
+	section {
+		flex-wrap: wrap;
+		max-width: 550px;
+		width: 100%;
 
-.location-icon {}
+		margin: auto;
+	}
+
+	.location-info-container {
+		flex-wrap: wrap;
+		height: 250px;
+	}
+
+	.vL2 {
+		display: none;
+	}
+
+	.vL3 {
+		margin-right: 20px;
+	}
+}
+
+@media(max-width:500px) {}
