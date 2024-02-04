@@ -1,5 +1,6 @@
 var dataLocation = null;
 var dataIp = null;
+var map = null; // Declare map variable globally
 
 // get ip data then send it to "function fillLocationInfo()"
 async function getIp() {
@@ -78,21 +79,33 @@ fillLocationInfo()
 
 // draw default map with current location 
 
+function initializeMap() {
+	var mapArea = document.querySelector(".map");
+	map = L.map(mapArea, {
+		center: [51.505, -0.09], // Initial center (replace with suitable coordinates)
+		zoom: 13
+	});
+
+	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+	}).addTo(map);
+}
+
+initializeMap(); // Call the map initialization function
+
+// Update the map with the user's current location
 if (navigator.geolocation) {
 	navigator.geolocation.watchPosition((position) => {
-		document.querySelector(".map-container").innerHTML = ` <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=${position.coords.longitude},${position.coords.latitude}&;layer=mapnik"></iframe>`
-		var locationMark = document.querySelector(".location-icon");
-
-	}
-	);
-
+		map.setView([position.coords.latitude, position.coords.longitude], 13);
+		L.marker([position.coords.latitude, position.coords.longitude]).addTo(map);
+	});
 }
+
 
 // redraw the map after given new location
 
 function findLocation(longitude, latitude, ip, location, timeZone, isp) {
-	if (navigator.geolocation) {
-		document.querySelector(".map-container").innerHTML = `<iframe src="https://www.openstreetmap.org/export/embed.html?bbox=${longitude},${latitude}&;layer=mapnik"></iframe>`;
-	}
-	fillLocationInfo(ip, location, timeZone, isp)
+	map.setView([latitude, longitude], 13); // Update existing map
+	L.marker([latitude, longitude]).addTo(map);
+	fillLocationInfo(ip, location, timeZone, isp);
 }

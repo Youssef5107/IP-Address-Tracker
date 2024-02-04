@@ -55,7 +55,7 @@ section {
 	margin: 40px auto 0px;
 	background-color: white;
 	border-radius: 15px;
-	z-index: 1;
+	z-index: 1000;
 }
 
 .info-container {
@@ -87,11 +87,13 @@ section {
 	justify-content: center;
 }
 
-iframe {
+.map {
 	position: absolute;
 	top: 300px;
 	width: 100%;
 	height: 700px;
 }
+
+iframe {}
 
 .location-icon {}
