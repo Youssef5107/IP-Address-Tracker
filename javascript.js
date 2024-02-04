@@ -51,21 +51,21 @@ function fillLocationInfo(ip, location, timeZone, isp) {
 				<div class="info">${ip}</div>
 			</div>
 		</div>
-		<hr>
+		<img class="vertical-line vL1" src="images/360_F_363347020_YzZc2x3LI8fTfVXvGVPTXTrkOAJ1MR4l.jpeg" alt="">
 		<div class="info-container">
 			<div class="info-area">
 				<div class="info-title">Location</div>
 				<div class="info">${location}</div>
 			</div>
 		</div>
-		<hr>
+		<img class="vertical-line vL2" src="images/360_F_363347020_YzZc2x3LI8fTfVXvGVPTXTrkOAJ1MR4l.jpeg" alt="">
 		<div class="info-container">
 			<div class="info-area">
 				<div class="info-title">Timezone</div>
 				<div class="info">UTC -${timeZone}</div>
 			</div>
 		</div>
-		<hr>
+		<img class="vertical-line vL3" src="images/360_F_363347020_YzZc2x3LI8fTfVXvGVPTXTrkOAJ1MR4l.jpeg" alt="">
 		<div class="info-container">
 			<div class="info-area">
 				<div class="info-title">ISP</div>
