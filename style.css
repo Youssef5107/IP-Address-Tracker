@@ -25,7 +25,11 @@ input {
 	height: 48px;
 }
 
-button {
+input:hover {
+	cursor: pointer;
+}
+
+.input-btn {
 	width: 50px;
 	height: 50px;
 	background-color: black;
@@ -33,6 +37,12 @@ button {
 	margin: 0px;
 	border: 0px;
 	border-radius: 0px 10px 10px 0px;
+	transition: 0.3s ease-in-out;
+}
+
+.input-btn:hover {
+	background-color: #262626;
+	transition: 0.3s ease-in-out;
 }
 
 .btn-img {
@@ -110,7 +120,6 @@ section {
 }
 
 .arrow {
-	margin: 0px 8.7px 0px 0px;
 	transform: rotate(-90deg);
 }
 
