@@ -99,8 +99,8 @@ section {
 .scroll-to-top-button {
 	width: 30px;
 	height: 30px;
-	position: fixed;
-	bottom: 20px;
+	position: absolute;
+	top: 940px;
 	right: 20px;
 	z-index: 1199;
 	border-radius: 50%;
