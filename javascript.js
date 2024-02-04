@@ -1,7 +1,7 @@
 var dataLocation = null;
 var dataIp = null;
 
-
+// get ip data then send it to "function fillLocationInfo()"
 async function getIp() {
 	const response = await fetch("http://ip-api.com/json/?fields=61439");
 	var dataIp = await response.json();
@@ -9,28 +9,40 @@ async function getIp() {
 	var location = dataIp.city;
 	var timeZone = dataIp.timezone;
 	var isp = dataIp.isp;
-	locationInfo(ip, location, timeZone, isp)
+	fillLocationInfo(ip, location, timeZone, isp)
 }
+
+
+// insert new from html input
+
 
 function ipInput() {
 	var inputIp = document.querySelector("input").value;
 	getLocation(inputIp);
 }
 
+//save new ip in new variables and send it to draw the new location map
+
 async function getLocation(inputIp) {
-	const response = await fetch("https://api.geoapify.com/v1/ipinfo?apiKey=" + inputIp)
+	const response = await fetch("https://geo.ipify.org/api/v2/country,city?apiKey=at_QyCIOzdReGCJHpir4mZ41Qzyak0bG&ipAddress=" + inputIp)
 	var dataLocation = await response.json();
-	var ipLongitude = dataLocation.location.longitude;
-	var ipLatitude = dataLocation.location.latitude;
+	var ipLongitude = dataLocation.location.lng;
+	var ipLatitude = dataLocation.location.lat;
+	var ip = dataLocation.ip;
+	var location = dataLocation.location.city;
+	var timeZone = dataLocation.location.timezone;
+	var isp = dataLocation.isp;
 	console.log(inputIp);
 	console.log(ipLongitude);
 	console.log(ipLatitude);
-	findLocation(ipLongitude, ipLatitude)
+	findLocation(ipLongitude, ipLatitude, ip, location, timeZone, isp)
 }
 
 getIp()
 
-function locationInfo(ip, location, timeZone, isp) {
+// location data
+
+function fillLocationInfo(ip, location, timeZone, isp) {
 	document.querySelector(".location-info-container").innerHTML = `
 		<div class="info-container">
 			<div class="info-area">
@@ -62,33 +74,25 @@ function locationInfo(ip, location, timeZone, isp) {
 	`
 }
 
-locationInfo()
+fillLocationInfo()
+
+// draw default map with current location 
 
 if (navigator.geolocation) {
 	navigator.geolocation.watchPosition((position) => {
-		var Latitude = position.coords.latitude;
-		var Longitude = position.coords.longitude;
-		var mark = document.querySelector(".location-icon");
-		var mapContainer = document.querySelector(".map-container");
-		var map = ` <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=${position.coords.longitude},${position.coords.latitude}&;layer=mapnik"></iframe>`
-		mapContainer.innerHTML = map;
+		document.querySelector(".map-container").innerHTML = ` <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=${position.coords.longitude},${position.coords.latitude}&;layer=mapnik"></iframe>`
+		var locationMark = document.querySelector(".location-icon");
 
 	}
 	);
+
 }
 
-function findLocation(longitude, latitude) {
+// redraw the map after given new location
+
+function findLocation(longitude, latitude, ip, location, timeZone, isp) {
 	if (navigator.geolocation) {
-		navigator.geolocation.watchPosition((position) => {
-			var Latitude = position.coords.latitude;
-			var Longitude = position.coords.longitude;
-			var mark = document.querySelector(".location-icon");
-			var mapContainer = document.querySelector(".map-container");
-			var map = ` <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=${longitude},${latitude}&;layer=mapnik"></iframe>`
-			mapContainer.innerHTML = map;
-
-		}
-		);
+		document.querySelector(".map-container").innerHTML = `<iframe src="https://www.openstreetmap.org/export/embed.html?bbox=${longitude},${latitude}&;layer=mapnik"></iframe>`;
 	}
-
+	fillLocationInfo(ip, location, timeZone, isp)
 }
