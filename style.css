@@ -101,7 +101,6 @@ section {
 		flex-wrap: wrap;
 		max-width: 550px;
 		width: 100%;
-
 		margin: auto;
 	}
 
@@ -119,4 +118,22 @@ section {
 	}
 }
 
-@media(max-width:500px) {}
+@media(max-width:500px) {
+	section {
+		max-width: 300px;
+		width: 100%;
+	}
+
+	.location-info-container {
+		height: 300px;
+	}
+
+	.info-container {
+		margin: 0px 37px;
+		text-align: center;
+	}
+
+	.vertical-line {
+		display: none;
+	}
+}
