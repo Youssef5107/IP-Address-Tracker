@@ -59,7 +59,7 @@ section {
 }
 
 .info-container {
-	margin: 0px 10px;
+	margin: 0px 22px
 }
 
 .info-area {
@@ -75,8 +75,11 @@ section {
 	font-size: 18px;
 }
 
-hr {
-	transform: rotate(0deg);
+.vertical-line {
+	width: 115px;
+	height: 141px;
+	position: relative;
+	bottom: 15px;
 }
 
 .map-container {
