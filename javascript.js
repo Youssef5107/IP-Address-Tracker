@@ -4,6 +4,7 @@ var map = null; // Declare map variable globally
 
 // get ip data then send it to "function fillLocationInfo()"
 async function getIp() {
+	//add secure api
 	const response = await fetch("http://ip-api.com/json/?fields=61439");
 	var dataIp = await response.json();
 	var ip = dataIp.query;
