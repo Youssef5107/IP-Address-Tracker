@@ -5,12 +5,12 @@ var map = null; // Declare map variable globally
 // get ip data then send it to "function fillLocationInfo()"
 async function getIp() {
 	//add secure api
-	const response = await fetch("http://ip-api.com/json/?fields=61439");
+	const response = await fetch("https://ipapi.co/json/");
 	var dataIp = await response.json();
-	var ip = dataIp.query;
+	var ip = dataIp.ip;
 	var location = dataIp.city;
 	var timeZone = dataIp.timezone;
-	var isp = dataIp.isp;
+	var isp = dataIp.org;
 	fillLocationInfo(ip, location, timeZone, isp)
 }
 
