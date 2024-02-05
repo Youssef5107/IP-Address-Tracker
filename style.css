@@ -115,7 +115,7 @@ section {
 	z-index: 1199;
 	border-radius: 50%;
 	border: none;
-	background-color: black;
+	background-image: url(images/pattern-bg-desktop.png);
 	cursor: pointer;
 }
 
